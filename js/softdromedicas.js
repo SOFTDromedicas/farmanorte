@@ -25,6 +25,7 @@ var geoLocateActive;
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
 var servicioSucursalesUrl = "../modules/mapaservicio.php";
+// var servicioSucursalesUrl = "http://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
 var sucursales;
 
 //funcion llamada al final por el registro de evento load del objeto window
@@ -50,6 +51,7 @@ function consumirServicio(callback){
         		//conversion explicita de la respuesta a JSON   
         		console.log(textStatus);
             callback( $.parseJSON(data));             
+            // callback( data);             
         })
         .fail(function(xhr, status, error) {
             document.getElementById("errorCargaSuc").style.display = 'block';

@@ -18,5 +18,7 @@
        curl_close($ch);
        echo $jsonResponse;
 
+       // echo"PRUEBA JSON";
+
 
 ?>
