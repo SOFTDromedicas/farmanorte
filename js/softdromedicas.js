@@ -24,16 +24,15 @@ var geoLocateActive;
 
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
-var servicioSucursalesUrl = "http://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
+var servicioSucursalesUrl = "../modules/mapaservicio.php";
 var sucursales;
 
 //funcion llamada al final por el registro de evento load del objeto window
 function iniciar() {	
-		consumirServicio(function(result){			
-				sucursales = result;
+		consumirServicio(function(result){						
+				sucursales = result.data;
 				console.log("Sucusales total: "+sucursales.length);
-		});
-		
+		});		
 		setCurrentCoords();				
     //se cargan las coordenadas actuales y dentro 
     //de este medoto se manda a crear el mapa 
@@ -45,9 +44,12 @@ function iniciar() {
 function consumirServicio(callback){
 	$.ajax({
             url: servicioSucursalesUrl,
+            // dataType: "jsonp",
         })
-        .done(function(res) {        		
-            callback(res.data);             
+        .done(function( data, textStatus, jqXHR ) {      
+        		//conversion explicita de la respuesta a JSON   
+        		console.log(textStatus);
+            callback( $.parseJSON(data));             
         })
         .fail(function(xhr, status, error) {
             document.getElementById("errorCargaSuc").style.display = 'block';
