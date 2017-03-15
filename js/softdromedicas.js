@@ -25,7 +25,7 @@ var geoLocateActive;
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
 // var servicioSucursalesUrl = "../modules/mapaservicio.php";
-var servicioSucursalesUrl = "https://dromedicas.ddns.net:8443/serviciomapatemp/mapas.csv";
+var servicioSucursalesUrl = "https://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
 var sucursales;
 
 //funcion llamada al final por el registro de evento load del objeto window
@@ -46,14 +46,17 @@ function consumirServicio(callback){
 	$.ajax({
 						type: 'GET',
             url: servicioSucursalesUrl,
-            dataType: "text/csv",
+             contentType: 'text/plain',
+             // dataType: "jsonp",
+             xhrFields: {
+    				 withCredentials: false
+  					 },
         })
-        .done(function( data, textStatus, jqXHR ) {  
-        		jqXHR.addHeader("Access-Control-Allow-Origin");    
-        		console.log("Estatus: " + textStatus);
+        .done(function( data, textStatus, jqXHR ) {      
+        		console.log(textStatus);
         		//conversion explicita de la respuesta a JSON   
             // callback( $.parseJSON(data) );             
-            callback( CSVToArray(data));             
+            callback( data);             
         })
         .fail(function(xhr, status, error) {
             document.getElementById("errorCargaSuc").style.display = 'block';
