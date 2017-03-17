@@ -263,7 +263,10 @@ function createMarkers() {
 	        if (principal.localeCompare(sucursalt) === 0) {
 	            //crea el marcador para la oficina ppal
 	            addMarkerWithTimeoutPpal(coordenadas, i * 100,
-	                nombrePropio(sucursales[i].sucursal) + "Del Oriente SAS", i, sucursales[i].direccion2, sucursales[i].telefono, sucursales[i].celular);
+	                nombrePropio(sucursales[i].sucursal) + "Del Oriente SAS", i, 
+	                nombrePropio(sucursales[i].direccion2), 
+	                sucursales[i].telefono, 
+	                sucursales[i].celular);
 	        } else {
 
 	            //creando los marcadores del mapa
@@ -271,7 +274,7 @@ function createMarkers() {
 	                i * 50, //temporizador para la caida
 	                nombrePropio(sucursales[i].sucursal), //nombre de la sucursal
 	                i, //posicion en la coleccion
-	                sucursales[i].direccion2, //direccion
+	                nombrePropio(sucursales[i].direccion2), //direccion
 	                sucursales[i].telefono, //tel fijo 
 	                sucursales[i].celular, //celular
 	                sucursales[i].nombre, //ciudad
