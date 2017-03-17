@@ -24,8 +24,8 @@ var geoLocateActive;
 
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
-// var servicioSucursalesUrl = "../modules/mapaservicio.php";
-var servicioSucursalesUrl = "https://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
+var servicioSucursalesUrl = "../modules/mapaservicio.php";
+var servicioSucursalesUrl = "http://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
 var sucursales;
 
 //funcion llamada al final por el registro de evento load del objeto window
@@ -33,11 +33,11 @@ function iniciar() {
 		consumirServicio(function(result){						
 				sucursales = result.data;
 				console.log("Sucusales total: "+sucursales.length);
+		    //se cargan las coordenadas actuales y dentro 
+		    //de este medoto se manda a crear el mapa 
+		    //invocando la funcion crearMapa
+				setCurrentCoords();				
 		});		
-		setCurrentCoords();				
-    //se cargan las coordenadas actuales y dentro 
-    //de este medoto se manda a crear el mapa 
-    //invocando la funcion crearMapa
     
 }
 
@@ -256,21 +256,20 @@ function createMarkers() {
 	    for (var i = 0; i < sucursales.length; i++) {	    	
 	        //se crea un objeto coordenadas para crear nuestro marcador
 	        var coordenadas = new google.maps.LatLng(sucursales[i].latitud.trim(), sucursales[i].longitud.trim() );
-	        
 	        //variables creadas para comparar determinar cual es la ppal
 	        var sucursalt = new String(sucursales[i].sucursal);
-	        var principal = new String('DROMEDICAS DEL ORIENTE SAS');
+	        var principal = new String('DROMEDICAS');
 
 	        if (principal.localeCompare(sucursalt) === 0) {
 	            //crea el marcador para la oficina ppal
 	            addMarkerWithTimeoutPpal(coordenadas, i * 100,
-	                sucursales[i].sucursal, i, sucursales[i].direccion2, sucursales[i].telefono, sucursales[i].celular);
+	                nombrePropio(sucursales[i].sucursal) + "Del Oriente SAS", i, sucursales[i].direccion2, sucursales[i].telefono, sucursales[i].celular);
 	        } else {
 
 	            //creando los marcadores del mapa
 	            addMarkerWithTimeout(coordenadas, //coordenadas del marker
 	                i * 50, //temporizador para la caida
-	                sucursales[i].sucursal, //nombre de la sucursal
+	                nombrePropio(sucursales[i].sucursal), //nombre de la sucursal
 	                i, //posicion en la coleccion
 	                sucursales[i].direccion2, //direccion
 	                sucursales[i].telefono, //tel fijo 
@@ -1098,6 +1097,24 @@ function getCurrentDistanceGoogleMaps(lat, lng) { //----este metodo no se usa...
         }
     );
 } //fin del metodo getCurrentDistanceGoogleMaps
+
+/*
+ * Recibe una cadena compuesta de varios tokens o palabras en
+ * mayuscula o minuscula y lo convierte en nombre propio, Ej:
+ * DROMEDICAS DEL ORIENTE ---> Dromedicas Del Oriente
+ * dromedicas del oriente ---> Dromedicas Del Oriente
+ */
+function nombrePropio(cadena){
+	var tokens = cadena.trim().split(" ");
+	var nuevaCadena = "" ;
+	for( var i = 0; i < tokens.length ; i++){
+		var temp = tokens[i].substring(0, 1);
+		var tokenTemp = temp.toUpperCase() + tokens[i].substring(1, tokens[i].length).toLowerCase();
+		nuevaCadena += " " + tokenTemp;
+	}
+	return nuevaCadena.trim();
+
+}
 
 
 window.addEventListener('load', iniciar, false);
