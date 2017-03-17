@@ -19,6 +19,4 @@
        echo $jsonResponse;
 
        // echo"PRUEBA JSON";
-
-
 ?>
