@@ -24,8 +24,6 @@ var geoLocateActive;
 
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
-var servicioSucursalesUrl = "../modules/mapaservicio.php";
-// var servicioSucursalesUrl = "http://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
 var servicioSucursalesUrl = "https://dromedicas.ddns.net:8443/serviciomapasfarmanorte/rest/sucursales";
 var sucursales;
 
@@ -255,7 +253,7 @@ function createMarkers() {
     //iteramos la coleccion de sucursales
     try{
 	    for (var i = 0; i < sucursales.length; i++) {	    
-            console.log("Sucursal: " + sucursales[i].sucursal);
+            //console.log("Sucursal: " + sucursales[i].sucursal);
 	        //se crea un objeto coordenadas para crear nuestro marcador
 	        var coordenadas = new google.maps.LatLng(sucursales[i].latitud.trim(), sucursales[i].longitud.trim() );
 	        //variables creadas para comparar determinar cual es la ppal
@@ -285,7 +283,7 @@ function createMarkers() {
 	                sucursales[i].cn, //cierre l-v
                     sucursales[i].ae, //apertura d-f
 	                sucursales[i].ce, //apertura d-f
-                    i+1//contador
+                    i//contador
 	                // sucursales[i].contador //contador
 	            );
 	        }
@@ -962,11 +960,11 @@ function crearSucursal(lat, lng, suc, dir, i, marker) {
     //creo el h3 id sucursalNombre
     var sucursalNombreElement = document.createElement("h3");
     sucursalNombreElement.setAttribute("id", "sucursalNombre");
-    sucursalNombreElement.appendChild(document.createTextNode(suc));
+    sucursalNombreElement.appendChild(document.createTextNode( nombrePropio(suc) ));
     //creo el p id dirSucursal
     var dirSucursalElement = document.createElement("p");
     dirSucursalElement.setAttribute("id", "dirSucursal");
-    dirSucursalElement.appendChild(document.createTextNode(dir));
+    dirSucursalElement.appendChild(document.createTextNode( nombrePropio(dir) ));
     //creo el div clase distancediv
     var distancedivElement = document.createElement("div");
     distancedivElement.setAttribute("class", "distancediv");
@@ -984,6 +982,7 @@ function crearSucursal(lat, lng, suc, dir, i, marker) {
         lat: lat,
         lng: lng
     };
+   
     service.getDistanceMatrix({
             origins: [origin],
             destinations: [dest],
