@@ -25,13 +25,14 @@ var geoLocateActive;
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
 var servicioSucursalesUrl = "../modules/mapaservicio.php";
-var servicioSucursalesUrl = "http://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
+// var servicioSucursalesUrl = "http://dromedicas.ddns.net:9999/dropos/wsjson/sucursalesweb/";
+var servicioSucursalesUrl = "https://dromedicas.ddns.net:8443/serviciomapasfarmanorte/rest/sucursales";
 var sucursales;
 
 //funcion llamada al final por el registro de evento load del objeto window
 function iniciar() {	
 		consumirServicio(function(result){						
-				sucursales = result.data;
+				sucursales = result;
 				console.log("Sucusales total: "+sucursales.length);
 		    //se cargan las coordenadas actuales y dentro 
 		    //de este medoto se manda a crear el mapa 
@@ -253,7 +254,8 @@ function createMarkers() {
 		
     //iteramos la coleccion de sucursales
     try{
-	    for (var i = 0; i < sucursales.length; i++) {	    	
+	    for (var i = 0; i < sucursales.length; i++) {	    
+            console.log("Sucursal: " + sucursales[i].sucursal);
 	        //se crea un objeto coordenadas para crear nuestro marcador
 	        var coordenadas = new google.maps.LatLng(sucursales[i].latitud.trim(), sucursales[i].longitud.trim() );
 	        //variables creadas para comparar determinar cual es la ppal
@@ -281,13 +283,15 @@ function createMarkers() {
 	                sucursales[i].es24horas, //24horas
 	                sucursales[i].an, //apertura l-v
 	                sucursales[i].cn, //cierre l-v
-	                sucursales[i].ae, //apertura d-f
-	                sucursales[i].contador //cierre apertura d-f
+                    sucursales[i].ae, //apertura d-f
+	                sucursales[i].ce, //apertura d-f
+                    i+1//contador
+	                // sucursales[i].contador //contador
 	            );
 	        }
 	    } //fin del for    	
     }catch(ex){
-    	console.log(ex);
+    	console.log(ex.message);
     }
 
 } //fin del metodo createMarkers
@@ -1120,4 +1124,4 @@ function nombrePropio(cadena){
 }
 
 
-window.addEventListener('load', iniciar, false);
+window.addEventListener('load', iniciar, false)
