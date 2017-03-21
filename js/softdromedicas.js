@@ -43,9 +43,9 @@ function iniciar() {
 //consume
 function consumirServicio(callback){
 	$.ajax({
-						type: 'GET',
+			type: 'GET',
             url: servicioSucursalesUrl,
-             contentType: 'text/plain',
+            contentType: 'text/plain',
              // dataType: "jsonp",
              xhrFields: {
     				 withCredentials: false
