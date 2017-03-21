@@ -979,8 +979,8 @@ function crearSucursal(lat, lng, suc, dir, i, marker) {
         lng: currentLng
     };
     var dest = {
-        lat: lat,
-        lng: lng
+        lat: parseFloat(lat),
+        lng: parseFloat(lng)
     };
    
     service.getDistanceMatrix({
