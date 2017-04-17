@@ -41,22 +41,23 @@ function iniciar() {
 }
 
 //consume
-function consumirServicio(callback){
-	$.ajax({
-			type: 'GET',
+function consumirServicio(callback) {
+    $.ajax({
+            xhrFields: {
+                withCredentials: true
+            },
+            type: 'GET',
             url: servicioSucursalesUrl,
-            contentType: 'text/plain',
+            // contentType: 'text/plain',
             crossDomain: true,
-             // dataType: "jsonp",
-             xhrFields: {
-    				 withCredentials: false
-  					 },
+            dataType: "jsonp",
+
         })
-        .done(function( data, textStatus, jqXHR ) {      
-        		console.log(textStatus);
-        		//conversion explicita de la respuesta a JSON   
+        .done(function(data, textStatus, jqXHR) {
+            console.log(textStatus);
+            //conversion explicita de la respuesta a JSON   
             // callback( $.parseJSON(data) );             
-            callback( data);             
+            callback(data);
         })
         .fail(function(xhr, status, error) {
             document.getElementById("errorCargaSuc").style.display = 'block';
