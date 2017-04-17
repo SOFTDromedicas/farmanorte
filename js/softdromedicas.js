@@ -24,7 +24,7 @@ var geoLocateActive;
 
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
-var servicioSucursalesUrl = "http://dromedicas.ddns.net/serviciomapasfarmanorte/rest/sucursales";
+var servicioSucursalesUrl = "http://dromedicas.ddns.net:8080/serviciomapasfarmanorte/rest/sucursales";
 var sucursales;
 
 //funcion llamada al final por el registro de evento load del objeto window
