@@ -25,6 +25,7 @@ var geoLocateActive;
 //informacion y coordenada de sucursales
 //--esto se debe reemplazar por un servicio...
 var servicioSucursalesUrl = "http://dromedicas.ddns.net:8080/serviciomapasfarmanorte/rest/sucursales";
+var servicioSucursalesUrl = "../modules/mapaservicio.php";
 var sucursales;
 
 //funcion llamada al final por el registro de evento load del objeto window
@@ -42,23 +43,19 @@ function iniciar() {
 
 //consume
 function consumirServicio(callback) {
-    $.ajax({
-            xhrFields: {
-                withCredentials: false
-            },
-            type: 'GET',
+    $.ajax({            
             url: servicioSucursalesUrl,
-            contentType: 'text/plain',
-            crossDomain: true,
-            dataType: "jsonp",
+            contentType: '"application/json; charset=utf-8"',            
         })
         .done(function(data, textStatus, jqXHR) {
             console.log(textStatus);
+            console.log(JSON.parse(data));
             //conversion explicita de la respuesta a JSON   
             // callback( $.parseJSON(data) );             
-            callback(data);
+            callback(JSON.parse(data));
         })
         .fail(function(xhr, status, error) {
+        		console.log(xhr.data);
             document.getElementById("errorCargaSuc").style.display = 'block';
         });
 }
