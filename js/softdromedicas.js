@@ -44,14 +44,13 @@ function iniciar() {
 function consumirServicio(callback) {
     $.ajax({
             xhrFields: {
-                withCredentials: true
+                withCredentials: false
             },
             type: 'GET',
             url: servicioSucursalesUrl,
-            // contentType: 'text/plain',
+            contentType: 'text/plain',
             crossDomain: true,
             dataType: "jsonp",
-
         })
         .done(function(data, textStatus, jqXHR) {
             console.log(textStatus);
