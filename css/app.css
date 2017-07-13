@@ -831,6 +831,7 @@ figure{
 .contentload{
 	z-index: 10;
 	background-color: rgba(0, 10, 123, .45);	
+	background-color: rgba(48, 48, 48, .45);
 	position: absolute;
 	top: 0;	
 	height: 100%;
