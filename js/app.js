@@ -76,6 +76,7 @@ var asyncRequest;
 
 
 function iniciar() {
+	console.log("Cargando pagina...");
 	var sonido = document.getElementById("jigle");
 	sonido.play();
 	//registro de eventos de envio del formulario
@@ -92,6 +93,7 @@ function iniciar() {
 	emalField.addEventListener("blur", resetCalloutAlert, false);
 }
 
+//funcion para el manejo del control de multimedia 
 $(document).ready(function() {
     var audioElement = document.getElementById('jigle');
     $('#stop').hide();
@@ -101,7 +103,6 @@ $(document).ready(function() {
         $('#stop').show();
         audioElement.pause();
     });
-
 
     $('#stop').click(function() {
         $('#play').show();

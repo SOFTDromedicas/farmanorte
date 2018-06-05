@@ -1,9 +1,9 @@
 @import url(normalize.css);
 
 
-/*.row{ border: 1px solid #000CE9; }
-.column{ border: 1px solid #F3C200;}*/
-
+/*.row{ border: 1px solid #FF0042; }
+.column{ border: 1px solid #00f34b;}*/
+svg { max-height: 100%; }
 @font-face {
   font-family: 'icomoonpage';
   src:  url('../fonts/fontspage/icomoonpage.eot?uyuiv4');
@@ -120,7 +120,7 @@ figure{
 	background-color: #09137E!important;	
 }
 
-.barMenu{
+.barMenu{	
 	background: #389B48;
 	background: #000A7B;
 	color: white;
@@ -305,7 +305,8 @@ figure{
  	color: #000a7b;
  	font-family: 'Lato', sans-serif;
  	font-size: 1rem;
- 	font-weight: bold;  	 
+ 	font-weight: bold;  
+ 	outline: 0;	 
  }
 
 .servicioscontent i{
@@ -750,8 +751,6 @@ figure{
 
 }
 
-
-
 #footerSection li a{
 	text-decoration: none;
 	color: #d5d5d5;
@@ -766,10 +765,6 @@ figure{
 #footerfinal{
 	padding-top: .9rem;
 }
-
-
-
-
 
 .redes{
 	color: #D5D5D5;
@@ -794,8 +789,10 @@ figure{
 .row.redes { margin: 0 0 0 0 ;} 
 
 .iconoredes{
-	font-size: 2.35rem;
+	font-size: 2.35rem!important;
+	margin-top: 0.7rem;
 }
+
 .iconoredes:hover{
 	color: #00BAFF;
 }
@@ -878,10 +875,73 @@ figure{
 /*end spinner*/
 
 /***Pagina Inyectologia*****/
+.titulo-seccion-img{
+	margin-bottom: 2rem;
+}
+
+.texto-seccion{
+	height: 100%;
+}
+
+.imgseccion{
+	float: right;
+}
+
+.texto-contenedor{
+	padding:0 5rem 0 4rem;
+	/*margin-bottom: 6rem;*/
+}
+
+.texto-contenedor p{
+	border-left: 3px solid #093A9E;
+	padding-left: 1rem;
+}
+
+.boton-titulo{
+	width: 5rem;
+}
+
+
+#inyectologia-contenedor{
+	/*background-image: url('../images/fondoInstitucionalIny.png');*/
+	background: url('../images/fondoInstitucionalIny.png');
+		/* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#callcenter-section{
+	/*background-image: url('../images/fondoInstitucionalIny.png');*/
+	background: url('../images/fondoCallCenter.png');
+		/* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#domicilio-contenedor{
+	/*background-image: url('../images/fondoInstitucionalIny.png');*/
+	background: url('../images/fondoDomiclios.png');
+	/* Full height */
+    height: 100%;     
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
 #inyectologia-contenedor,
 #callcenter-section,
 #domicilio-contenedor {
-	padding: 3.5rem 0 4rem 0;
+	padding: 4rem 0 8rem 0;
 	background-color: #FFFFFF;
 }
 
@@ -898,10 +958,8 @@ figure{
 	color: #000a7b;
 }
 
-#inyectologia-contenedor img{
-	box-shadow: 0 1px 3px #888;
-	border:.95rem solid #FFFFFF;
-	height: 28rem;
+#inyectologia-contenedor #tituloImagenInyectologia{
+	width: 18rem;
 }
 
 .callcenteroper{
@@ -916,15 +974,13 @@ figure{
 	height: 9rem;
 }
 
-
 #inyectologia-contenedor p{
 	text-align: justify;
 }
 
 .imgdomisection.divdomicilio{
 	height: 20rem;
-	text-align: center;
-	
+	text-align: center;	
 }
 
 .imgdomisection h5{
@@ -935,8 +991,11 @@ figure{
 
 /*Footer solo para small breakpoint*/
 @media screen and (max-width: 39.9375em) {
+
 	.barMenu{		
 		padding: .1rem .2rem .3rem .1rem ;
+		-webkit-backdrop-filter: blur(10px);
+		background: rgba(0, 10, 123, .9);
 		
 	}
 	.servicioscontent{
@@ -945,15 +1004,6 @@ figure{
 
 	.contentload{
 		width: 90%;		
-	}
-
-	#inyectologia-contenedor{
-		padding: 2rem 0;
-		background-color: #FFFFFF;
-	}
-	
-	#inyectologia-contenedor img{
-		height: 20rem;
 	}
 
 	#footerSection ul{
@@ -973,4 +1023,6 @@ figure{
 	.titleRedes{
 		font-size: 1rem;
 	}
+
+
 }
