@@ -24,6 +24,15 @@
     <link rel="stylesheet" href="css/font-awesome.css">      
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />  
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script>
+      var mediaquery = window.matchMedia("(max-width: 39.9375em)");
+      if (mediaquery.matches) {
+        //se redirecciona a la pagina de perfil
+        window.location.href = "inicio.html";
+      } else {
+      // mediaquery no es 600
+      }
+    </script>
   </head>
   <body>
   <audio id="jigle" preload="auto">
@@ -245,7 +254,7 @@
                 <div class="content-video" data-equalizer-watch>
                   <h2></h2>
                   <div class="flex-video videoins">
-                    <iframe src="//www.dailymotion.com/embed/video/x5tchq9?related=0" poster="http://www.dailymotion.com/video/x5tchq9" allowfullscreen></iframe>                    
+                    <!-- <iframe src="//www.dailymotion.com/embed/video/x5tchq9?related=0" poster="http://www.dailymotion.com/video/x5tchq9" allowfullscreen></iframe>                     -->
                   </div>
                 </div>
               </div>
