@@ -8,7 +8,7 @@ svg {
 }
 
 body {
-    background-image: url("/imagesapp/backgroundimgl.png");
+    background-image: url("imagesapp/backgroundimgl.png");
     background-repeat: no-repeat;
     background-size: cover;
     /* background: tomato; */
