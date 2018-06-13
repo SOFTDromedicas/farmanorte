@@ -77,8 +77,25 @@ $(window).scroll(function(){
 
 //eventos para la multimedia y procesamiento del formulario
 var asyncRequest;
+function toggleFullScreen() {
+	var doc = window.document;
+	var docEl = doc.documentElement;
+  
+	var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+	var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+  
+	if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+	  requestFullScreen.call(docEl);
+	}
+	else {
+	  cancelFullScreen.call(doc);
+	}
+  }
 
 function iniciar() {
+	
+	toggleFullScreen();
+
 	console.log("Cargando pagina...");
 	var sonido = document.getElementById("jigle");
 	sonido.play();

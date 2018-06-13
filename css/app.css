@@ -1,8 +1,8 @@
 @import url(normalize.css);
 
 
-/*.row{ border: 1px solid #FF0042; }
-.column{ border: 1px solid #00f34b;}*/
+/* .row{ border: 1px solid #FF0042; }
+.column{ border: 1px solid #00f34b;} */
 svg { max-height: 100%; }
 @font-face {
   font-family: 'icomoonpage';

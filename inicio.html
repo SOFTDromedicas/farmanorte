@@ -5,7 +5,7 @@
     <title>Droguer&iacute;a Farmanorte: Droguerías en toda Cúcuta</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">    
-
+    
     <meta name="description" content="Droguer&iacute;as Farmanorte Es una cadena de m&aacute;s de 30 Droguer&iacute;as en C&uacute;cuta, dedicados a llevar salud a todos los rincones de nuestra regi&oacute;n, garantizando compromiso, responsabilidad en la atención a nuestro usuarios, los mejores precios y servicio a domicilio">
     <meta name="keywords" content="">
     <meta name="author" content="SoftDromedicas">
@@ -23,6 +23,24 @@
     <link rel="stylesheet" href="css/appm.css">      
     <link rel="stylesheet" href="css/font-awesome.css">      
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Sucursales Farmanorte">
+    <meta name="format-detection" content="telephone=no">
+
+    <script>
+        var mediaquery = window.matchMedia("(min-width: 40em)");
+        if (mediaquery.matches) {
+          //se redirecciona a la pagina de perfil
+          window.location.href = "index.html";
+        } else {
+        // mediaquery no es 600
+        }
+    </script>
+ 
 </head>
 <body>
     <!-- contenedor del menu off-canvas -->
@@ -34,9 +52,30 @@
                     <div class="bar bar-mid"></div>
                     <div class="bar bar-bot"></div>
                 </div>
-            </div>
+            </div>            
         </div>
     </div>
+
+    <!-- menu off canva -->
+    <nav class="burger">
+        <ul class="burger__menu">
+            <li>
+                <a href="#">Contacto</a>
+            </li>
+            <li>
+                <a href="#">Enviar un WhatsApp</a>
+            </li>
+            <li>
+                <a href="#">Vademecum</a>
+            </li>           
+            <li>
+                <a href="#">Inscribirme a Puntos Farmarnorte</a>
+            </li>
+        </ul>
+        <img src="/imagesapp/logoBlanco.svg" alt=""  id="logo-offcanvas" class="logo-menu">
+    </nav>
+    
+   
     <!-- contenedor logo -->
     <div class="row" id="logo-content">
         <div class="column small-10">
@@ -45,9 +84,11 @@
     </div>
     <!-- contenedor menu opciones -->
     <div class="row" id="contenedor-menu">
-        <div class="column small-12 float-center">
-            <div id="llamar-div" class="button-app">
-                <div class="row align-middle content-button small-collapse" >
+
+    <div class="column small-12 float-center main">
+        <a href="tel:+5775892030">
+            <div id="llamar-div" class="botonapp">
+                <div class="row align-middle content-button small-collapse">
                     <div class="column small-4 align-self-middle">
                         <img src="/imagesapp/phone.svg" alt="" class="button-icon">
                     </div>
@@ -56,24 +97,29 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="column small-12 float-center">
-            <div id="consulta-div" class="button-app">
-                <div class="row align-middle content-button small-collapse" >
-                    <div class="column small-4 align-self-middle">
-                        <img src="/imagesapp/chatdos.svg" alt="" class="button-icon">
-                    </div>
-                    <div class="column small-8 align-self-middle">
-                        <span class="texto-boton float-left">Consulta</span><br>
-                        <span class="texto-add float-left">en l&iacute;nea</span>
-                    </div>
+        </a>
+    </div>
+
+    <div class="column small-12 float-center">
+
+        <div id="consulta-div" class="botonapp">
+            <div class="row align-middle content-button small-collapse">
+                <div class="column small-4 align-self-middle">
+                    <img src="/imagesapp/chatdos.svg" alt="" class="button-icon">
+                </div>
+                <div class="column small-8 align-self-middle">
+                    <span class="texto-boton float-left">Chat</span>
+                    <br>
+                    <span class="texto-add float-left">en l&iacute;nea</span>
                 </div>
             </div>
         </div>
 
-        <div class="column small-12 float-center">
-            <div id="ubique-div" class="button-app">
+    </div>
+
+    <div class="column small-12 float-center">
+        <a href="seccion/mapsfarmanorte.html">
+            <div id="ubique-div" class="botonapp">
                 <div class="row align-middle content-button small-collapse">
                     <div class="column small-4 align-self-middle">
                         <img src="/imagesapp/marker.svg" alt="" class="button-icon">
@@ -81,31 +127,28 @@
                     <div class="column small-8 align-self-middle">
                         <span class="texto-boton float-left">Ubique</span>
                         <br>
-                        <span class="texto-add float-left">su Droguer&iacute;a mas cercana</span>                        
+                        <span class="texto-add float-left">su Droguer&iacute;a mas cercana</span>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="column small-12 float-center">
-            <div id="puntos-div" class="button-app">
-                <div class="row align-middle content-button small-collapse">
-                    <div class="column small-4 align-self-middle">
-                        <img src="/imagesapp/logopuntosonly.svg" alt="" class="button-icon">
-                    </div>
-                    <div class="column small-8 align-self-middle">
-                        <span class="texto-boton float-left">Puntos</span>
-                        
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </a>
+    </div>
 
-        
+    <div class="column small-12 float-center">
+        <div id="puntos-div" class="botonapp">
+            <div class="row align-middle content-button small-collapse">
+                <div class="column small-4 align-self-middle">
+                    <img src="/imagesapp/logopuntosonly.svg" alt="" class="button-icon">
+                </div>
+                <div class="column small-8 align-self-middle">
+                    <span class="texto-boton float-left">Puntos</span>
+
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
     </div> <!-- end contenedor menu -->
-
-
 
 
     <script src="js/vendor/jquery.js"></script>
@@ -123,6 +166,6 @@
       ga('send', 'pageview');
     </script>
     <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/appm.js"></script>
 </body>
 </html>
